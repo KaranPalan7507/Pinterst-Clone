@@ -76,10 +76,12 @@ class App extends Page {
 
         }
         let newBoard = document.getElementsByClassName("create-new")[0];
-        newBoard.addEventListener("click", () => {
-            this.hideModal();
-            this.showNewBoardModal(imgIndex);
-        })
+        var self = this;
+        newBoard.addEventListener("click", function listener() {
+            newBoard.removeEventListener("click", listener, false);
+            self.hideModal();
+            self.showNewBoardModal(imgIndex);
+        });
         let closeBtns = document.querySelectorAll('#myModal .close');
         for (let btn of closeBtns) {
             btn.addEventListener('click', () => {
@@ -104,22 +106,21 @@ class App extends Page {
         modal.classList.add('open');
         document.body.classList.add('modal-open');
         let submitBtn = document.getElementsByClassName("create")[0];
-        this.saveListener = this.saveToNewBoard.bind(this,imageIndex);
-        submitBtn.addEventListener("click", this.saveListener );
-    }
-
-    saveToNewBoard(imageIndex) {
-        let submitBtn = document.getElementsByClassName("create")[0];
-        submitBtn.removeEventListener("click", this.saveListener);
-        let createBoardForm = document.getElementById("create-board-form");
-        const boardName = createBoardForm.querySelector("#board-name").value;
-        const boardIndex = this.addNewBoard(boardName);
-        if (boardName.trim().length === 0) {
-            return;
-        }
-        this.addPinToBoard(imageIndex, boardIndex);
-        createBoardForm.reset();
-        this.hideNewBoardModal();
+        let self = this;
+        submitBtn.addEventListener("click", function listener(){
+            let submitBtn = document.getElementsByClassName("create")[0];
+            submitBtn.removeEventListener("click", listener, false);
+            let createBoardForm = document.getElementById("create-board-form");
+            const boardName = createBoardForm.querySelector("#board-name").value;
+            const boardIndex = self.addNewBoard(boardName);
+            if (boardName.trim().length === 0) {
+                return;
+            }
+            self.addPinToBoard(imageIndex, boardIndex);
+            createBoardForm.reset();
+            self.hideNewBoardModal();
+            
+        });
     }
 
     addNewBoard(boardName) {
