@@ -104,14 +104,22 @@ class App extends Page {
         modal.classList.add('open');
         document.body.classList.add('modal-open');
         let submitBtn = document.getElementsByClassName("create")[0];
+        this.saveListener = this.saveToNewBoard.bind(this,imageIndex);
+        submitBtn.addEventListener("click", this.saveListener );
+    }
+
+    saveToNewBoard(imageIndex) {
+        let submitBtn = document.getElementsByClassName("create")[0];
+        submitBtn.removeEventListener("click", this.saveListener);
         let createBoardForm = document.getElementById("create-board-form");
-        submitBtn.addEventListener("click", () => {
-            const boardName = createBoardForm.querySelector("#board-name").value;
-            const boardIndex = this.addNewBoard(boardName);
-            this.addPinToBoard(imageIndex, boardIndex);
-            createBoardForm.reset();
-            this.hideNewBoardModal();
-        });
+        const boardName = createBoardForm.querySelector("#board-name").value;
+        const boardIndex = this.addNewBoard(boardName);
+        if (boardName.trim().length === 0) {
+            return;
+        }
+        this.addPinToBoard(imageIndex, boardIndex);
+        createBoardForm.reset();
+        this.hideNewBoardModal();
     }
 
     addNewBoard(boardName) {
