@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <title>Pinterest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css">
+    <script src='./js/page.js'></script>
+    <script src='./js/layout.js'></script>
+    <script src='./js/router.js'></script>
+    <script src='./home/home.js'></script>
+    <script src='./boards/boards.js'></script>
+    <script src='./board/board.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container pt-4 header">
+        <h2>Pinterest</h2>
+        <nav>
+            <ul>
+                <li><a href='#'>home</a></li>
+                <li><a href='#boards'>boards</a></li>
+            </ul>
+        </nav>
+    </div>
+    <main></main>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span>Choose Board</span>
+                    <button type="button" class="button close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="board-list">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="button create-new">Create new</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="create-board-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span>Create new board</span>
+                    <button type="button" class="button close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="create-board-form">
+                        <label>
+                            Board Name:
+                            <input type="text" name="" id="board-name">
+                        </label>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="button create">Create</button>
+                    <button type="button" class="button cancel">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="/main.js"></script>
+</body>
+
+</html>
