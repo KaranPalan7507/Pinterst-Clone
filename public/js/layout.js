@@ -1,3 +1,5 @@
+'use strict';
+
 class Layout {
     constructor(...pages) {
       this.pages = pages;

@@ -1,3 +1,5 @@
+'use strict';
+
 class Page {
   constructor(url) {
     this.url =  url;

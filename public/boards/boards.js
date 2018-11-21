@@ -1,3 +1,5 @@
+'use strict';
+
 class Boards extends Page {
     constructor(url) {
         super(url);

@@ -1,3 +1,5 @@
+'use strict';
+
 class Router {
   constructor(routes, el) {
     this.routes = routes;

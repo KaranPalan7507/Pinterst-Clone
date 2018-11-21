@@ -1,3 +1,5 @@
+'use strict';
+
 class App extends Page {
     constructor(url) {
         super(url);
@@ -40,7 +42,7 @@ class App extends Page {
         let img = document.createElement('img')
         img.src = imageSrc;
         itemContent.append(img);
-        img.addEventListener('load', (e) => {
+        img.addEventListener('load', (event) => {
             const imageCurWidth = event.target.width;
             const imageCurHeight = (imageCurWidth * event.target.naturalHeight) / event.target.naturalWidth;
             itemContent.style.height = imageCurHeight + "px";

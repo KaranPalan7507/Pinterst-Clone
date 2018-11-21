@@ -6,7 +6,7 @@ const routes = new Router(
     ],
     document.querySelector('main')
 );
-window.onload = () => {
+window.onload = function() {
 
 
 }   
