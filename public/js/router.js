@@ -7,7 +7,7 @@ class Router {
     this.getImageData();
   }
   async getImageData() {
-    const response = await fetch('/public/images.json')
+    const response = await fetch('/Pinterst-Clone/public/images.json')
     const images = await response.json();
     localStorage.setItem('images', JSON.stringify(images.images));
 }
